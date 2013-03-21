@@ -15,6 +15,12 @@
 // SPI Slave Select pin
 #define ST7579_RSPI_SLAVESELECT 3
 
+// RSPI peripheral number
+#define ST7579_RSPI RSPI0
+
+// RSPI MSTP command
+#define ST7579_RSPI_MSTP MSTP(RSPI0)
+
 // SPI initialization and I/O
 void rspi_init();
 void rspi_ports_enable();  // User-tweaked function to flip on RSPI functionality on pins
