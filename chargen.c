@@ -26,7 +26,7 @@ void okaya_putc(uint8_t c, uint8_t doflush)
 	uint16_t j;
 
 	// Process the character as is
-	if (c > 0x7F)  // High-bit characters treated as spaces; so are ctrl chars
+	if (c > 0x7F)  // High-bit characters treated as spaces
 		c = 0x20;
 
 	if (c >= 0x20) {
