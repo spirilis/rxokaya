@@ -10,6 +10,7 @@
 
 //const char *teststr = "The quick brown fox quickly jumps\nover the\thill.\n";
 //const char *teststr = "The quick brown fox quickly jumps";
+// uh, this came from some fisher price toy my daughter was playing with btw.  paraphrased :P
 const char *teststr = "The quick brown fox quickly jumps\nover the\thill.\nTell him that you love him\nShow him that you\b care\nA whole lo\bt.";
 
 int main()
