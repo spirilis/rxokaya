@@ -31,3 +31,5 @@ Newlib stub support found in-
 This provides open(), close(), read() and write() (only open, close and write do anything meaningful).
 The user can utilize Newlib's printf and fprintf on the "stdout" file handle.  Path to the LCD is "LCD".
 Example usage in examples/newlib_printf/main.c
+
+Note that an underscore-based cursor is enabled by default.  You may disable this by commenting out OKAYA_USE_CURSOR in okaya.h
