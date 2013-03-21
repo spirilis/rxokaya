@@ -59,7 +59,6 @@ void okaya_putc(uint8_t c, uint8_t doflush)
 				if (okaya_x % OKAYA_TAB_SPACING == 0) {
 					okaya_x += OKAYA_TAB_SPACING;
 				} else {
-				PORTD.DR.BIT.B2=0;
 					okaya_x += okaya_x % OKAYA_TAB_SPACING;
 				}
 				break;
