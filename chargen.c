@@ -88,12 +88,13 @@ void okaya_putc(uint8_t c, uint8_t doflush)
 			memcpy(okaya_framebuffer+(i-1)*OKAYA_X_PIXELS,
 			       okaya_framebuffer+i*OKAYA_X_PIXELS,
 			       OKAYA_X_PIXELS);
-			okaya_dirtybits[i] = 0xFFFF;
+			okaya_dirtybits[i-1] = 0xFFFF;
 		}
 		okaya_y = OKAYA_LINES-1;
 		memset(okaya_framebuffer + okaya_y*OKAYA_X_PIXELS,
 		       0x00,
 		       OKAYA_X_PIXELS);  // Clear last line
+		okaya_dirtybits[okaya_y] = 0xFFFF;
 	}
 
 #ifdef OKAYA_USE_CURSOR
