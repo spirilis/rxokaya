@@ -20,7 +20,7 @@ _rspi_util.h_ must be configured to set the RSPI Slave Select pin.
 
 Initialization occurs via st7579_init() followed by okaya_init()
 
-All library files expect to find an "_iodefine.h_" in the current directory.
+All library files expect to find an _iodefine.h_ in the current directory.
 
 Newlib stub support found in-
 * newlib/devoptab.c
