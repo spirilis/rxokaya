@@ -35,3 +35,5 @@ The user can utilize Newlib's printf and fprintf on the "stdout" file handle.  P
 Example usage in examples/newlib_printf/main.c
 
 Note that an underscore-based cursor is enabled by default.  You may disable this by commenting out _OKAYA_USE_CURSOR_ in okaya.h
+
+A basic manifest of the files required for a simple implementation is found in the _basic/_ subdirectory.

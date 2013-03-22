@@ -30,8 +30,8 @@ int main()
 			     */
 	printf("Check this out!\n");
 	printf("It's awesome.");
-	fprintf(stdout, "For realz.");
-	printf("\nCheck out that fine cursor too.");
+	fprintf(stdout, "For realz.\n");
+	printf("Check out that fine cursor too.\n");
 	fflush(stdout);
 
 	while(1) ;
