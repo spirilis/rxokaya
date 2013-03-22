@@ -3,7 +3,7 @@
  *
  *  Created on: Mar 15, 2012
  *      Author: RG1540
- *      Modified for Renesas RX Okaya lib by Spirilis
+ *      Modified for Renesas RX Okaya lib by Eric Brundick
  */
 
 #ifndef FONT_5X7_H_
