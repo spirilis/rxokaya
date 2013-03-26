@@ -39,7 +39,7 @@ void okaya_init()
 	memset(okaya_framebuffer, 0, OKAYA_LINES*OKAYA_COLUMNS*OKAYA_CHAR_WIDTH);
 	okaya_x = 0;
 	okaya_y = 0;
-	st7579_clear();
+	st7579_init();
 }
 
 void okaya_putc(uint8_t c, uint8_t doflush)

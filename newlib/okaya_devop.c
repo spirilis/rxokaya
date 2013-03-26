@@ -55,7 +55,6 @@ uint8_t okaya_lcd_was_initialized = 0;
 int okaya_open(const char *path, int flags, int mode)
 {
 	if (!okaya_lcd_was_initialized) {
-		st7579_init();
 		okaya_init();
 		okaya_lcd_was_initialized = 1;
 	} else {

@@ -47,9 +47,8 @@ int main()
 	PORTD.DDR.BIT.B2=1;
 	PORTD.DR.BIT.B2=1;
 
-	st7579_init();  // Releases RSTOUT# and initializes the LCD, initializes backlight LED (turns it off by default)
+	okaya_init();  // Runs st7579_init(), releases RSTOUT# and initializes the LCD, initializes backlight LED (turns it off by default)
 	st7579_backlight(0);
-	okaya_init();
 
 	okaya_puts(teststr);
 
