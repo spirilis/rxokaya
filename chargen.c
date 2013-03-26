@@ -36,10 +36,19 @@ uint8_t okaya_x, okaya_y;
 
 void okaya_init()
 {
+	uint16_t j;
+
 	memset(okaya_framebuffer, 0, OKAYA_LINES*OKAYA_COLUMNS*OKAYA_CHAR_WIDTH);
 	okaya_x = 0;
 	okaya_y = 0;
 	st7579_init();
+
+#ifdef OKAYA_USE_CURSOR
+	j = okaya_y * OKAYA_X_PIXELS + okaya_x * OKAYA_CHAR_WIDTH;
+	memcpy(okaya_framebuffer+j, okaya_cursor, OKAYA_CHAR_WIDTH);
+	okaya_dirtybits[okaya_y] |= 1 << okaya_x;
+	okaya_flush();
+#endif
 }
 
 void okaya_putc(uint8_t c, uint8_t doflush)
