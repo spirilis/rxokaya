@@ -137,6 +137,27 @@ void okaya_putc(uint8_t c, uint8_t doflush)
 		okaya_flush();
 }
 
+void okaya_move(uint8_t x, uint8_t y)
+{
+	uint16_t j;
+#ifdef OKAYA_USE_CURSOR
+	// Erase the cursor presently at okaya_x,okaya_y before moving it
+	j = okaya_y * OKAYA_X_PIXELS + okaya_x * OKAYA_CHAR_WIDTH;
+	memcpy(okaya_framebuffer+j, okaya_5x7_font[0], OKAYA_CHAR_WIDTH);
+	okaya_dirtybits[okaya_y] |= 1 << okaya_x;
+#endif
+	okaya_x = x;
+	okaya_y = y;
+
+#ifdef OKAYA_USE_CURSOR
+	// Write the cursor to the new position
+	j = okaya_y * OKAYA_X_PIXELS + okaya_x * OKAYA_CHAR_WIDTH;
+	memcpy(okaya_framebuffer+j, okaya_cursor, OKAYA_CHAR_WIDTH);
+	okaya_dirtybits[okaya_y] |= 1 << okaya_x;
+	okaya_flush();  // Only need to flush if we are using a cursor.
+#endif
+}
+
 void okaya_flush()
 {
 	uint16_t i, j;

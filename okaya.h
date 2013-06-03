@@ -49,6 +49,7 @@ void okaya_init();
 void okaya_putc(uint8_t c, uint8_t doflush);
 void okaya_puts(const char *str);
 void okaya_flush();
+void okaya_move(uint8_t x, uint8_t y);
 
 extern uint8_t okaya_framebuffer[];
 extern uint16_t okaya_dirtybits[];

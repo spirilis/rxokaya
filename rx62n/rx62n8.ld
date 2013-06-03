@@ -37,12 +37,12 @@ ENTRY(_start)
 /* Do we need any of these for elf?
    __DYNAMIC = 0;    */
 
-/* This memory layout corresponds to the smallest predicted RX600 chip.  */
+/* This memory layout corresponds to the RX62N 8ADFP chip (512K flash/96K SRAM) */
 MEMORY {
 	RAM (w)   : ORIGIN = 0x00000000, LENGTH = 0x00018000 /* 96k */
 	STACK (w) : ORIGIN = 0x00018000, LENGTH = 16 /* top of RAM */
 
-	ROM (w)   : ORIGIN = 0xfff80000, LENGTH = 0x00080000 /* 768k */
+	ROM (w)   : ORIGIN = 0xfff80000, LENGTH = 0x00080000 /* 512k */
 }
 
 SECTIONS
@@ -187,6 +187,20 @@ SECTIONS
     LONG (0);
     LONG (__rx_nonmaskable_exception_handler);
     LONG (_start);
+  }
+
+  PROVIDE (__idkey_0 = 0xFFFFFFFF);
+  PROVIDE (__idkey_1 = 0xFFFFFFFF);
+  PROVIDE (__idkey_2 = 0xFFFFFFFF);
+  PROVIDE (__idkey_3 = 0xFFFFFFFF);
+
+  .idkey (0xFFFFFFA0) :
+  {
+    PROVIDE (__idkey = .);
+    LONG (__idkey_0);
+    LONG (__idkey_1);
+    LONG (__idkey_2);
+    LONG (__idkey_3);
   }
 
   /* The rest are all not normally part of the runtime image.  */
